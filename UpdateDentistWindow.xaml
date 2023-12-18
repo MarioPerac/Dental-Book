@@ -1,0 +1,131 @@
+﻿<Window x:Class="DentalBook.UpdateDentistWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:DentalBook"
+        Icon="pack://application:,,,/DentalBook;component/images/dentalLogo.ico"
+        mc:Ignorable="d"
+        TextElement.FontSize="16"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Title="Update Dentist" Height="750" Width="600">
+    <Grid Background="{DynamicResource MaterialDesignBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <TextBlock Text="Update Dentist" Grid.Row="0"
+           HorizontalAlignment="Center" 
+           FontSize="20"  
+           VerticalAlignment="Top" 
+           FontWeight="Bold"
+           Margin="0 20 0 0"
+           Foreground="{DynamicResource MaterialDesignBody}"
+           Style="{StaticResource MaterialDesignBody2TextBlock}" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Grid.Row="1">
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="DentistNameSurnameTextBox" Width="200" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             materialDesign:HintAssist.Hint="Name and Surname"
+                             />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
+                    <ComboBox x:Name="ShiftEvenWeeksComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+materialDesign:HintAssist.Hint="Shift Even Weeks" Width="200" SelectionChanged="SelectionChangedShiftComboBox" HorizontalAlignment="Left" Margin="0 0 50 0"/>
+
+                    <ComboBox x:Name="ShiftOddWeeksComboBox" SelectionChanged="SelectionChangedShiftComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+materialDesign:HintAssist.Hint="Shift Odd Weeks" Width="200" HorizontalAlignment="Right" Margin="50 0 0 0"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Left" Grid.Column="0" Margin="40 0 50 0" Width="200">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="21*"/>
+                        <ColumnDefinition Width="19*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel x:Name="EvenWeeksSchedule" Orientation="Vertical" Width="200" Grid.ColumnSpan="2">
+
+                        <TextBlock Text="Even weeks schedule" Margin="0 40 0 5" />
+                        <CheckBox x:Name="EWSMondayCheckBox" Content="Monday"/>
+                        <CheckBox x:Name="EWSTuesdayCheckBox" Content="Tuesday"/>
+                        <CheckBox x:Name="EWSWednesdayCheckBox" Content="Wednesday"/>
+                        <CheckBox x:Name="EWSThursdayCheckBox" Content="Thursday"/>
+                        <CheckBox x:Name="EWSFridayCheckBox" Content="Friday"/>
+                        <CheckBox x:Name="EWSStaurdayCheckBox" Content="Saturday"/>
+                        <CheckBox x:Name="EWSSundayCheckBox" Content="Sunday"/>
+
+                        <materialDesign:TimePicker
+Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+materialDesign:HintAssist.Hint="Work from"
+x:Name="EWSWorkFromTimePicker"
+Is24Hours="True" />
+                        <materialDesign:TimePicker
+Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+materialDesign:HintAssist.Hint="Break form"
+x:Name="EWSBreakFromTimePicker"
+Is24Hours="True" />
+                        <materialDesign:TimePicker
+Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+materialDesign:HintAssist.Hint="Break until"
+x:Name="EWSBreakUntilTimePicker"
+Is24Hours="True" />
+                        <materialDesign:TimePicker
+ Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+ materialDesign:HintAssist.Hint="Work until"
+ x:Name="EWSWorkUntilTimePicker"
+ Is24Hours="True" />
+                    </StackPanel>
+                </Grid>
+                <Grid HorizontalAlignment="Right" Grid.Column="1" Width="200" Margin="50 0 40 0">
+
+                    <StackPanel x:Name="OddWeeksSchedule" Visibility="Collapsed" Orientation="Vertical" Width="200">
+
+                        <TextBlock Text="Odd weeks Schedule" Margin="0 40 0 5"/>
+                        <CheckBox x:Name="OWSMondayCheckBox" Content="Monday"/>
+                        <CheckBox x:Name="OWSTuesdayCheckBox" Content="Tuesday"/>
+                        <CheckBox x:Name="OWSWednesdayCheckBox" Content="Wednesday"/>
+                        <CheckBox x:Name="OWSThursdayCheckBox" Content="Thursday"/>
+                        <CheckBox x:Name="OWSFridayCheckBox" Content="Friday"/>
+                        <CheckBox x:Name="OWSSaturdayCheckBox" Content="Saturday"/>
+                        <CheckBox x:Name="OWSSundayCheckBox" Content="Sunday"/>
+
+                        <materialDesign:TimePicker
+Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+materialDesign:HintAssist.Hint="Work from"
+x:Name="OWSWorkFromTimePicker"
+Is24Hours="True" />
+                        <materialDesign:TimePicker
+Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+materialDesign:HintAssist.Hint="Break form"
+x:Name="OWSBreakFromTimePicker"
+Is24Hours="True" />
+                        <materialDesign:TimePicker
+Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+materialDesign:HintAssist.Hint="Break until"
+x:Name="OWSBreakUntilTimePicker"
+Is24Hours="True" />
+                        <materialDesign:TimePicker
+ Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+ materialDesign:HintAssist.Hint="Work until"
+ x:Name="OWSWorkUntilTimePicker"
+ Is24Hours="True" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="3">
+            <Button Content="Save" Click="UpdateDentistButton" Width="150" Margin="20" Foreground="White" VerticalAlignment="Center"/>
+            <Button Content="Cancel" BorderThickness="0" Background="Red" Click="CancelButton" Width="150" Margin="20" Foreground="White" VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>
